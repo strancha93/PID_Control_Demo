@@ -3,7 +3,7 @@
     {
       "id": "step_src",
       "type": "STEP_INPUT",
-      "x": 40,
+      "x": 50,
       "y": 250,
       "label": "Consigne (Step)",
       "properties": {
@@ -16,13 +16,12 @@
       "outputs": [
         "out"
       ],
-      "viewType": "BEHAVIORAL_MODELING",
-      "parentId": null
+      "viewType": "BEHAVIORAL_MODELING"
     },
     {
       "id": "sum_err",
       "type": "ADDER",
-      "x": 240,
+      "x": 250,
       "y": 250,
       "label": "Erreur",
       "properties": {
@@ -35,14 +34,13 @@
       "outputs": [
         "y"
       ],
-      "viewType": "BEHAVIORAL_MODELING",
-      "parentId": null
+      "viewType": "BEHAVIORAL_MODELING"
     },
     {
       "id": "pid_ctrl",
       "type": "DISCRETE_PID",
-      "x": 430,
-      "y": 260,
+      "x": 400,
+      "y": 250,
       "label": "Contrôleur (PID)",
       "properties": {
         "K": 5,
@@ -55,14 +53,13 @@
       "outputs": [
         "y"
       ],
-      "viewType": "BEHAVIORAL_MODELING",
-      "parentId": null
+      "viewType": "BEHAVIORAL_MODELING"
     },
     {
       "id": "plant_sys",
       "type": "TRANSFER_FCN",
-      "x": 620,
-      "y": 270,
+      "x": 600,
+      "y": 250,
       "label": "Système (Plant)",
       "properties": {
         "numerator": "10",
@@ -74,13 +71,12 @@
       "outputs": [
         "y"
       ],
-      "viewType": "BEHAVIORAL_MODELING",
-      "parentId": null
+      "viewType": "BEHAVIORAL_MODELING"
     },
     {
       "id": "scope_main",
       "type": "SCOPE",
-      "x": 840,
+      "x": 850,
       "y": 200,
       "label": "Résultats",
       "properties": {
@@ -92,8 +88,7 @@
         "w2_s1"
       ],
       "outputs": [],
-      "viewType": "BEHAVIORAL_MODELING",
-      "parentId": null
+      "viewType": "BEHAVIORAL_MODELING"
     }
   ],
   "connections": [
@@ -153,6 +148,6 @@
   "metadata": {
     "name": "Modèle Signal",
     "description": "",
-    "lastSync": "2026-02-22T15:24:03.825Z"
+    "lastSync": "2026-02-22T15:36:40.438Z"
   }
 }
