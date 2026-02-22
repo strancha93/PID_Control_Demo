@@ -1,0 +1,158 @@
+{
+  "nodes": [
+    {
+      "id": "step_src",
+      "type": "STEP_INPUT",
+      "x": 40,
+      "y": 250,
+      "label": "Consigne (Step)",
+      "properties": {
+        "stepTime": 1,
+        "initialValue": 0,
+        "finalValue": 1,
+        "sampleTime": -1
+      },
+      "inputs": [],
+      "outputs": [
+        "out"
+      ],
+      "viewType": "BEHAVIORAL_MODELING",
+      "parentId": null
+    },
+    {
+      "id": "sum_err",
+      "type": "ADDER",
+      "x": 240,
+      "y": 250,
+      "label": "Erreur",
+      "properties": {
+        "signs": "+-"
+      },
+      "inputs": [
+        "u1",
+        "u2"
+      ],
+      "outputs": [
+        "y"
+      ],
+      "viewType": "BEHAVIORAL_MODELING",
+      "parentId": null
+    },
+    {
+      "id": "pid_ctrl",
+      "type": "DISCRETE_PID",
+      "x": 430,
+      "y": 260,
+      "label": "Contrôleur (PID)",
+      "properties": {
+        "K": 5,
+        "Ki": 2,
+        "Kd": 0.1
+      },
+      "inputs": [
+        "u"
+      ],
+      "outputs": [
+        "y"
+      ],
+      "viewType": "BEHAVIORAL_MODELING",
+      "parentId": null
+    },
+    {
+      "id": "plant_sys",
+      "type": "TRANSFER_FCN",
+      "x": 620,
+      "y": 270,
+      "label": "Système (Plant)",
+      "properties": {
+        "numerator": "10",
+        "denominator": "1, 2, 10"
+      },
+      "inputs": [
+        "u"
+      ],
+      "outputs": [
+        "y"
+      ],
+      "viewType": "BEHAVIORAL_MODELING",
+      "parentId": null
+    },
+    {
+      "id": "scope_main",
+      "type": "SCOPE",
+      "x": 840,
+      "y": 200,
+      "label": "Résultats",
+      "properties": {
+        "numWindows": 2,
+        "inputsPerWindow": "1, 1"
+      },
+      "inputs": [
+        "w1_s1",
+        "w2_s1"
+      ],
+      "outputs": [],
+      "viewType": "BEHAVIORAL_MODELING",
+      "parentId": null
+    }
+  ],
+  "connections": [
+    {
+      "id": "c1",
+      "fromNodeId": "step_src",
+      "fromPortId": "out",
+      "toNodeId": "sum_err",
+      "toPortId": "u1",
+      "viewType": "BEHAVIORAL_MODELING"
+    },
+    {
+      "id": "c_scope_in",
+      "fromNodeId": "step_src",
+      "fromPortId": "out",
+      "toNodeId": "scope_main",
+      "toPortId": "w1_s1",
+      "inflectionX": 200,
+      "inflectionY": 150,
+      "viewType": "BEHAVIORAL_MODELING"
+    },
+    {
+      "id": "c2",
+      "fromNodeId": "sum_err",
+      "fromPortId": "y",
+      "toNodeId": "pid_ctrl",
+      "toPortId": "u",
+      "viewType": "BEHAVIORAL_MODELING"
+    },
+    {
+      "id": "c3",
+      "fromNodeId": "pid_ctrl",
+      "fromPortId": "y",
+      "toNodeId": "plant_sys",
+      "toPortId": "u",
+      "viewType": "BEHAVIORAL_MODELING"
+    },
+    {
+      "id": "c4",
+      "fromNodeId": "plant_sys",
+      "fromPortId": "y",
+      "toNodeId": "scope_main",
+      "toPortId": "w2_s1",
+      "viewType": "BEHAVIORAL_MODELING"
+    },
+    {
+      "id": "c_fb",
+      "fromNodeId": "plant_sys",
+      "fromPortId": "y",
+      "toNodeId": "sum_err",
+      "toPortId": "u2",
+      "inflectionX": 680,
+      "inflectionY": 400,
+      "viewType": "BEHAVIORAL_MODELING"
+    }
+  ],
+  "metadata": {
+    "name": "Modèle Signal",
+    "description": "",
+    "lastSync": "2026-02-22T15:24:03.825Z"
+  }
+}
