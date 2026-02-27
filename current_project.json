@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "data": {
+        "label": "Signal Generator"
+      },
+      "type": "input",
+      "measured": {
+        "width": 150,
+        "height": 40
+      }
+    },
+    {
+      "id": "2",
+      "position": {
+        "x": 400,
+        "y": 100
+      },
+      "data": {
+        "label": "Gain"
+      },
+      "type": "default",
+      "measured": {
+        "width": 150,
+        "height": 40
+      }
+    },
+    {
+      "id": "3",
+      "position": {
+        "x": 700,
+        "y": 100
+      },
+      "data": {
+        "label": "Scope"
+      },
+      "type": "output",
+      "measured": {
+        "width": 150,
+        "height": 40
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1-2",
+      "source": "1",
+      "target": "2"
+    },
+    {
+      "id": "e2-3",
+      "source": "2",
+      "target": "3"
+    }
+  ]
+}
